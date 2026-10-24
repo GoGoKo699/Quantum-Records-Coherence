@@ -1,0 +1,51 @@
+{
+  "checks_passed": 149,
+  "seed": 2402026,
+  "source_sha256": "a757dfc15e6f935f14b1221c3b601555f8af7d9e0ce81375c357b29fd7be1a9f",
+  "numpy": "2.3.5",
+  "scipy": "1.17.0",
+  "sharp_coefficient_eps_0_2_C_0_1": 0.6934683460425485,
+  "sharp_convergence": [
+    {
+      "N": 100,
+      "error": 0.1999999999999999,
+      "total_correlation": 0.09074754443711135,
+      "pair_covariance": 0.0004326250397223008,
+      "visibility": 0.06916609513455009,
+      "sqrt_N_visibility": 0.6916609513455009
+    },
+    {
+      "N": 1000,
+      "error": 0.19999999999999876,
+      "total_correlation": 0.09879505480294626,
+      "pair_covariance": 4.327901684381824e-05,
+      "visibility": 0.021923659194139668,
+      "sqrt_N_visibility": 0.6932869769877297
+    },
+    {
+      "N": 10000,
+      "error": 0.1999999999999999,
+      "total_correlation": 0.09985178386370348,
+      "pair_covariance": 4.328066779205053e-06,
+      "visibility": 0.0069345020281655016,
+      "sqrt_N_visibility": 0.6934502028165501
+    },
+    {
+      "N": 100000,
+      "error": 0.20000000000000465,
+      "total_correlation": 0.09998240968107054,
+      "pair_covariance": 4.3280832882214293e-07,
+      "visibility": 0.0021929337211495517,
+      "sqrt_N_visibility": 0.6934665316621142
+    }
+  ],
+  "pairwise_N_10000_ell_6": {
+    "error": 0.19998777736008064,
+    "total_correlation": 0.06934326101228085,
+    "pair_covariance": -4.85722573273506e-17,
+    "visibility": 0.00544288340630039,
+    "correlation_certificate": 0.0772647888071432
+  },
+  "largest_pair_covariance_residual": 4.579669976578771e-16,
+  "scope": "Finite algebra, distribution and quantum-state checks; asymptotic proofs are in science/."
+}

@@ -1,9 +1,98 @@
-# Operational model and proposed frontier
+# Operational model
 
-Consider a binary classical label X with equally likely values and conditional environment states P_0 and P_1 on N record registers. In a classical diagonal realization, each register admits a decision rule with error at most ε, 0 < ε < 1/2, for each conditional label. Define total conditional correlation by D(P_x || ⊗_i P_{x,i}) ≤ C (for both x). The quantum version must specify the measurement channels and whether the budget applies to the original quantum record state or to the measured classical distribution.
+## System, records and visibility
 
-For pure conditional environment vectors |E_0⟩ and |E_1⟩, system interference is proportional to |⟨E_0|E_1⟩|. A diagonal classical construction can be purified with overlap equal to the Bhattacharyya affinity B(P_0,P_1)=Σ_z √(P_0(z)P_1(z)). General mixed states require an explicit operational definition of recoverable visibility and a proof that the classical bound lifts.
+Let $S$ be a qubit with a fixed pointer basis, and let $E=E_1\cdots E_N$ be the **selected** record fragments. All Hilbert spaces are finite-dimensional; the bound does not depend on their dimensions. Consider any positive, trace-one state
 
-**Candidate asymptotic formula (not yet certified):** for fixed ε and C>0, B_max ∼ 2√C / √[N(1−2ε) log((1−ε)/ε)]. At C=0 the independent-record benchmark is [2√(ε(1−ε))]^N. The limiting statements must clarify whether C is a bound for each conditional state or an average, and whether record errors are symmetric or only bounded.
+$$
+\rho_{SE}=\frac12
+\begin{pmatrix}
+\rho_E^0&A\\
+A^\dagger&\rho_E^1
+\end{pmatrix},
+\qquad \operatorname{Tr}\rho_E^x=1.
+$$
 
-The headline is currently a research conjecture pending full upper-bound proof, construction, endpoint checks and literature review. It is not a theorem merely because finite numerical examples fit it.
+The alternatives have equal prior probabilities. The actual normalized fringe visibility measured on $S$ is
+
+$$
+v=2|\langle0|\rho_S|1\rangle|=|\operatorname{Tr}A|.
+$$
+
+No environment-assisted recovery, outcome conditioning or postselection is included in this definition. The total state may be mixed. A purification may occupy an additional register $R$ outside the selected fragments.
+
+## Local readability and correlation budget
+
+Each $E_i$ has a fixed two-outcome POVM $\{M_i^0,M_i^1\}$ satisfying
+
+$$
+\operatorname{Tr}(M_i^1\rho_{E_i}^0)\le\varepsilon,
+\qquad
+\operatorname{Tr}(M_i^0\rho_{E_i}^1)\le\varepsilon.
+$$
+
+This is a bound on **both conditional errors**, not merely their average. Decoders can differ between fragments, and no permutation symmetry is assumed in the converse.
+
+For each $x\in\{0,1\}$ impose
+
+$$
+T_x=D\!\left(\rho_E^x\,\middle\|\,\bigotimes_{i=1}^N\rho_{E_i}^x\right)
+=\sum_{i=1}^N S(\rho_{E_i}^x)-S(\rho_E^x)\le C.
+$$
+
+All logarithms are natural; entropies and correlation budgets are in nats. This is correlation conditioned on the classical pointer alternative. It is not an unspecified conditional mutual information with a coherent conditioning system. The budget excludes correlations with $S$ and with an additional purifier.
+
+Define $v_{\max}(N,\varepsilon,C)$ as the supremum of $v$ over this class. No spatial locality, preparation-time, native gate-set or purity constraint is imposed on that supremum.
+
+## Quantum-to-classical reduction
+
+Apply all the local decoders and write their joint output as $Y\in\{0,1\}^N$. The conditional laws $P_x$ obey
+
+$$
+P_0(Y_i=1)\le\varepsilon,\qquad P_1(Y_i=0)\le\varepsilon.
+$$
+
+The same product measurement maps $\bigotimes_i\rho_{E_i}^x$ to $\bigotimes_iP_{x,i}$. Quantum relative-entropy data processing therefore gives
+
+$$
+D(P_x\|Q_x)\le T_x\le C,
+\qquad Q_x=\bigotimes_iP_{x,i}.
+$$
+
+The post-measurement state has, for each outcome $y$, a positive qubit block proportional to
+
+$$
+\begin{pmatrix}P_0(y)&a_y\\a_y^*&P_1(y)\end{pmatrix}.
+$$
+
+Positivity gives $|a_y|\le\sqrt{P_0(y)P_1(y)}$. Since the measurement is trace-preserving, $\sum_y a_y=\operatorname{Tr}A$. Hence
+
+$$
+v\le B(P_0,P_1):=\sum_y\sqrt{P_0(y)P_1(y)}.
+$$
+
+This proves the reduction directly for actual visibility; it does not assume that visibility equals a fidelity envelope for an arbitrary given state. The standard quantum-information ingredients are documented in [Watrous, Chapters 2, 3 and 5](../references/related-work.md).
+
+## Positive completion and exact classical attainability
+
+Conversely, for any two classical laws define the unnormalized vectors
+
+$$
+|\chi_y\rangle=\sqrt{P_0(y)}|0\rangle+\sqrt{P_1(y)}|1\rangle
+$$
+
+and the state
+
+$$
+\rho_{SE}=\frac12\sum_y|\chi_y\rangle\langle\chi_y|\otimes|y\rangle\langle y|.
+$$
+
+It is positive and trace one, its conditional record states are diagonal with laws $P_x$, its quantum total correlations equal the classical total correlations, and its visibility is exactly $B(P_0,P_1)$. Thus the quantum and classical suprema in this declared model coincide, and qubit record registers suffice to attain the classical constructions.
+
+An explicit isometry is
+
+$$
+|x\rangle_S\longmapsto |x\rangle_S\sum_y\sqrt{P_x(y)}|y\rangle_E|y\rangle_R.
+$$
+
+The two images are orthonormal because the system labels are orthogonal. It extends to a unitary with initially pure environment registers. Tracing $R$ gives the displayed positive completion. This realization uses $N$ additional purifier qubits; its general state-preparation gate cost is not bounded here. A simpler linear-gate realization attains the sharp *leading coefficient* in [Matching constructions](constructions.md).
