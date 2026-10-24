@@ -36,15 +36,14 @@ v\le V\le U_{\rm B}(N,\varepsilon,C)
 :=\cos\!\left([\arccos(r^N)-2g(C)]_+\right).
 ```
 
-This is our specialization of the source's inequalities. For every fixed $C>0$ and $0<\varepsilon<1/2$, direct evaluation gives
+This is our specialization of the source's inequalities. For fixed $0<C<\ln2$ and $0<\varepsilon<1/2$, direct evaluation gives
 
 ```math
-\lim_{N\to\infty}U_{\rm B}(N,\varepsilon,C)=
-\begin{cases}
-2e^{-C/2}\sqrt{1-e^{-C}},&0<C<\ln2,\\
-1,&C\ge\ln2.
-\end{cases}
+\lim_{N\to\infty}U_{\rm B}(N,\varepsilon,C)
+=2e^{-C/2}\sqrt{1-e^{-C}}.
 ```
+
+For fixed $C\ge\ln2$, the limiting upper bound is instead one. Both regimes follow by taking $r^N\to0$ in the clipped cosine expression.
 
 The elementary one-fragment cap $r$ can be imposed as well; the minimum still has a positive limit. At $C=0$, keep $U_{\rm B}=r^N$ rather than treating floating-point roundoff at $\cos(\pi/2)$ as residual visibility. The nonzero limit is a limitation of this **direct bound**, not a claim that nonzero asymptotic visibility is attainable.
 

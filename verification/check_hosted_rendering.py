@@ -75,8 +75,8 @@ def main() -> None:
                 row['article_box'] = article.bounding_box()
                 page.screenshot(path=str(output / f'{slug}.png'), full_page=True, timeout=30000)
                 row['screenshot'] = f'{slug}.png'
-                error_patterns = (r'macros are not allowed', r'Missing.*?delimiter',
-                                  r'Missing.*?end', r'Undefined control sequence',
+                error_patterns = (r'macros are not allowed', r'(?m)^Missing[^\n]*delimiter[^\n]*$',
+                                  r'(?m)^Missing[^\n]*\\end[^\n]*$', r'Undefined control sequence',
                                   r'ParseError', r'KaTeX parse error')
                 row['text_errors'] = [pattern for pattern in error_patterns
                                       if re.search(pattern, text, flags=re.I)]
