@@ -6,6 +6,7 @@ From the repository root, run:
 python -m pip install -r verification/requirements.txt
 python verification/check_records.py
 python verification/check_common_error.py
+python verification/check_bavaro_comparison.py
 ```
 
 The scripts print JSON and make no network requests. To refresh the checked numerical records:
@@ -13,9 +14,10 @@ The scripts print JSON and make no network requests. To refresh the checked nume
 ```bash
 python verification/check_records.py > verification/results.json
 python verification/check_common_error.py > verification/common_error_results.json
+python verification/check_bavaro_comparison.py > verification/bavaro_comparison_results.json
 ```
 
-The main script's stored output was produced with Python 3.13.5, NumPy 2.3.5 and SciPy 1.17.0. The common-error comparison uses only the Python standard library and was checked with Python 3.13.5. Each output's `source_sha256` identifies its generating script. Floating-point values may vary slightly across supported platforms.
+The main and Bavaro-comparison outputs use Python 3.13.5, NumPy 2.3.5 and SciPy 1.17.0. The common-error comparison uses only the Python standard library and was checked with Python 3.13.5. Each output's `source_sha256` identifies its generating script; the Bavaro comparison also records the imported core script and source PDF hashes. Floating-point values may vary slightly across supported platforms.
 
 ## What the 149 main check cases cover
 
@@ -35,7 +37,15 @@ The companion script checks the [two-point family's correlation budget](../refer
 
 For example, at $N=100000$ the constrained common-error family has $\sqrt N\,v\approx0.1503791947$, substantially below the main construction. The output's comparison ratio uses the *asymptotic* sharp scale, not an independently computed finite-$N$ optimum. The inverse-entropy asymptotic proof is in the related-work account; the slowly converging finite ratios do not prove it.
 
-These are checks of our explicit budget calculation, not a reproduction of an inaccessible manuscript or a numerical novelty test. The original main script and its stored output are separate from these 17 companion cases.
+These are checks of our explicit budget calculation, not a numerical novelty test. The original main script and its stored output are separate from these 17 companion cases.
+
+## Bavaro comparison
+
+The [comparison account](../references/bavaro-comparison.md) identifies the exact source and distinguishes source results from deductions made here. Its script contains 52 finite cases: one reproduction of Remark 6.4, 27 endpoint/inequality checks, four matching-family comparisons and 20 finite correlation-splitting checks with seed 24102026. The source PDF is not needed to execute the script and is not redistributed.
+
+Remark 6.4 reproduces to its quoted precision: affinity approximately $0.4555946768$, angle bound $0.5202211031$, and total-correlation bound $0.5942530214$. At $\varepsilon=0.2$, $C=0.1$, the direct uniform budget bound tends to $0.5868787437$. The blockwise deduction, derived here, gives a vanishing but logarithmically weaker bound. The actual-angle calculation is kept separate: knowing those angles supplies information beyond the declared total-correlation budget and can make the source's finite bound tighter than our implemented finite converse on particular states.
+
+The original, blob-verified main script was rerun successfully during this comparison. The new output was regenerated and compared on rerun. Counts describe finite internal cases, not independent reviews or new theorems.
 
 ## What the checks do not establish
 

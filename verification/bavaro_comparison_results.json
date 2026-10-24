@@ -1,0 +1,83 @@
+{
+  "source_example_cases": 1,
+  "endpoint_inequality_cases": 27,
+  "matching_family_cases": 4,
+  "correlation_splitting_cases": 20,
+  "source_pdf_sha256": "50aaff14f11a81da5ee7557d3ff86e446d8075b69717daf220ad75ff814410f9",
+  "source_sha256": "5c7772118ca444e65632eb02773547c642934be02f1d68ef001fc014c056a9a0",
+  "core_source_sha256": "a757dfc15e6f935f14b1221c3b601555f8af7d9e0ce81375c357b29fd7be1a9f",
+  "python": "3.13.5",
+  "numpy": "2.3.5",
+  "scipy": "1.17.0",
+  "Bavaro_Remark_6_4": {
+    "joint_affinity": 0.45559467676119003,
+    "product_proxy_affinity": 0.36,
+    "branch_Bures_angle": 0.0894209651119314,
+    "branch_total_correlation": 0.018019254793768466,
+    "Theorem_6_2_bound": 0.5202211031255694,
+    "Corollary_6_3_bound": 0.5942530213679913
+  },
+  "epsilon": 0.2,
+  "budget_nats": 0.1,
+  "direct_fixed_budget_limit": 0.5868787437213167,
+  "sharp_asymptotic_coefficient": 0.6934683460425485,
+  "comparison": [
+    {
+      "N": 100,
+      "attained_visibility": 0.06916609513455009,
+      "actual_branch_total_correlation": 0.09074754443711135,
+      "actual_branch_Bures_angle": 0.035763324025588905,
+      "Bavaro_with_actual_angles": 0.07146567473335802,
+      "Bavaro_with_actual_total_correlations": 0.5629418981111416,
+      "Bavaro_with_budget_C": 0.5868787438862504,
+      "derived_block_bound": 0.2830261869779188,
+      "block_size": 14,
+      "block_count": 7,
+      "our_finite_upper_bound": 0.1309892065918475,
+      "sharp_asymptotic_scale_not_finite_bound": 0.06934683460425485
+    },
+    {
+      "N": 1000,
+      "attained_visibility": 0.021923659194139668,
+      "actual_branch_total_correlation": 0.09879505480294626,
+      "actual_branch_Bures_angle": 0.011327375331092505,
+      "Bavaro_with_actual_angles": 0.022652812833122704,
+      "Bavaro_with_actual_total_correlations": 0.5838567320138697,
+      "Bavaro_with_budget_C": 0.5868787437213167,
+      "derived_block_bound": 0.10097193414606007,
+      "block_size": 20,
+      "block_count": 50,
+      "our_finite_upper_bound": 0.03051032976372267,
+      "sharp_asymptotic_scale_not_finite_bound": 0.021929394587242662
+    },
+    {
+      "N": 10000,
+      "attained_visibility": 0.0069345020281655016,
+      "actual_branch_total_correlation": 0.09985178386370348,
+      "actual_branch_Bures_angle": 0.003582602161100546,
+      "Bavaro_with_actual_angles": 0.007165143011910798,
+      "Bavaro_with_actual_total_correlations": 0.5865084899987985,
+      "Bavaro_with_budget_C": 0.5868787437213167,
+      "derived_block_bound": 0.035297175767431715,
+      "block_size": 26,
+      "block_count": 384,
+      "our_finite_upper_bound": 0.008557511772873769,
+      "sharp_asymptotic_scale_not_finite_bound": 0.006934683460425485
+    },
+    {
+      "N": 100000,
+      "attained_visibility": 0.0021929337211495517,
+      "actual_branch_total_correlation": 0.09998240968107054,
+      "actual_branch_Bures_angle": 0.0011329363578615884,
+      "Bavaro_with_actual_angles": 0.0022658707768243498,
+      "Bavaro_with_actual_total_correlations": 0.5868348234381869,
+      "Bavaro_with_budget_C": 0.5868787437213167,
+      "derived_block_bound": 0.012105990124127405,
+      "block_size": 32,
+      "block_count": 3125,
+      "our_finite_upper_bound": 0.0025248637225274108,
+      "sharp_asymptotic_scale_not_finite_bound": 0.002192939458724266
+    }
+  ],
+  "scope": "Finite internal checks; the block refinement is derived here. No exhaustive priority or finite-optimality certification."
+}

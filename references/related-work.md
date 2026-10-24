@@ -1,6 +1,6 @@
 # Related work, attribution and review limits
 
-Scientific review date: 24 October 2026. Distinguish inspected primary statements, calculations supplied here, and unresolved source access. An independently reconstructed proof does not establish historical priority.
+Scientific review date: 24 October 2026. Distinguish inspected primary statements, calculations supplied here, and limits of the comparison. An independently reconstructed proof does not establish historical priority.
 
 ## Foundations and imported ingredients
 
@@ -80,10 +80,12 @@ Thus this two-point family does not provide the sharp matching witness. The [ind
 
 The [companion check](../verification/check_common_error.py) tests these finite entropy and affinity identities and the budget inversion. Its [stored output](../verification/common_error_results.json) supports the formulas, not historical priority or their asymptotic proof.
 
-## Bavaro: one unresolved full-text comparison
+## Bavaro: full-text comparison
 
-**P. Bavaro, “The Accessible Quantum Past: Record Filtrations, Expected Lifts, and Visibility Bounds,” Zenodo 22647510 (7 September 2026).** [Primary record](https://doi.org/10.5281/zenodo.22647510). The record label is v5; the description identifies manuscript v9.0 and `Past_Selection_Filtration_version_9_0_2.pdf` (MD5 `06bfc9d1e4f7d7201404150e2e51da2d`). These are distinct version labels.
+**P. J. Bavaro, “The Accessible Quantum Past: Record Information, Coherence Bounds, and Echo Tests,” manuscript dated 7 September 2026.** [Associated Zenodo record](https://doi.org/10.5281/zenodo.22647510). This is the title printed in the supplied 33-page `Past_Selection_Filtration_version_9_0_2.pdf`, whose MD5 `06bfc9d1e4f7d7201404150e2e51da2d` matches the previously retrieved record checksum. The catalogue's earlier title (“Record Filtrations, Expected Lifts, and Visibility Bounds”), record label v5 and manuscript v9.0 label are not silently substituted for the printed title. The [dedicated comparison](bavaro-comparison.md) records the exact file provenance and inspected scope.
 
-The description advertises correlated-record visibility bounds and a Bures-angle correlation budget. The full text remains unavailable in this review. Its budget definition, hypotheses, constants and possible implications for our extremal coefficient and pairwise-independent witness have not been checked. A difference of terminology alone establishes no novelty.
+Lemma 4.1 supplies the same actual-visibility/fidelity-envelope distinction. Theorem 5.3 and Corollary 5.5 include the product endpoint. Most importantly, **Corollary 6.3 already uses the same branch total correlation** as this project, by relaxing Theorem 6.2's Bures-angle correction. Generic correlation-budget visibility bounds are therefore prior work.
 
-The unresolved source comparison prevents a comprehensive priority assessment. Mathematical proofs and numerical checks do not remove that evidence gap.
+The direct fixed-budget specialization has a nonzero large-$N$ upper-bound limit. A stronger blockwise reuse, derived in the comparison, yields $O(\sqrt{\ln N/N})$ for fixed positive budget; no claim is made that earlier tools cannot imply decay. The source's state-specific angle bound can also be tight when additional angle information is available. The distinction supported here is the sharp fixed-budget $N^{-1/2}$ law and coefficient with matching attainability, and the simultaneous pairwise-independent bounded-correlation family. These are not stated in the inspected manuscript.
+
+The [comparison script](../verification/check_bavaro_comparison.py) reproduces the source's Remark 6.4, checks the budget specialization and block deduction, and contrasts actual-angle and budget-only bounds. The full-text access gap for this identified source is resolved. This statement-level comparison is not an exhaustive historical-priority certificate or independent expert validation.
