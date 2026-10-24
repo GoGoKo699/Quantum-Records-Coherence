@@ -1,15 +1,19 @@
-# Reproducible finite checks
+# Reproduction and review
 
-From the repository root, run:
+## Numerical and structural checks
+
+From the repository root:
 
 ```bash
 python -m pip install -r verification/requirements.txt
 python verification/check_records.py
 python verification/check_common_error.py
 python verification/check_bavaro_comparison.py
+python verification/check_learning_example.py
+python verification/check_repository.py
 ```
 
-The scripts print JSON and make no network requests. To refresh the checked numerical records:
+These five scripts do not make network requests. The first three print numerical records with script hashes; their stored outputs use Python 3.13.5, NumPy 2.3.5 and SciPy 1.17.0 (the common-error script uses only the standard library). Platform-dependent floating-point differences may occur. Refresh an existing record only after checking the reason for any changes:
 
 ```bash
 python verification/check_records.py > verification/results.json
@@ -17,36 +21,42 @@ python verification/check_common_error.py > verification/common_error_results.js
 python verification/check_bavaro_comparison.py > verification/bavaro_comparison_results.json
 ```
 
-The main and Bavaro-comparison outputs use Python 3.13.5, NumPy 2.3.5 and SciPy 1.17.0. The common-error comparison uses only the Python standard library and was checked with Python 3.13.5. Each output's `source_sha256` identifies its generating script; the Bavaro comparison also records the imported core script and source PDF hashes. Floating-point values may vary slightly across supported platforms.
+| Check | What it establishes in finite cases |
+|---|---|
+| `check_records.py` — 149 parameter/state cases | Normalization, conditional errors, entropy and affinity sandwiches, independent endpoint, finite converse, pairwise covariance, entropy certificate, positive completion, gate-level star circuit, and 40 random noncommuting quantum-state comparisons. |
+| `check_common_error.py` — 17 cases | Twelve explicit two-point distributions and five inverse-budget calculations; entropy, affinity and covariance identities. |
+| `check_bavaro_comparison.py` — 58 cases | The source's numerical example, 33 endpoint/inequality cases including six zero-budget regressions at large $N$, four matching-family comparisons and 20 total-correlation splitting cases. |
+| `check_learning_example.py` | The primer's two-record distributions, positive completions with visibility 0.64 and zero, unconditional dependence and bit/nat conversion. |
+| `check_repository.py` | Exactly 30 ordered milestones, 14/16 phase allocation, required fields, backward dependencies, selected anchor, six bibliography entries and existing local link targets. |
 
-## What the 149 main check cases cover
+The case counts are not counts of independent proofs. General heading fragments and external URLs are outside the structural script's checks. Personal coaching records and a separate manuscript entrypoint are excluded from the reader route.
 
-The deterministic grid tests normalization, marginal errors, the finite entropy sandwich, the mixture affinity sandwich, the independent endpoint and the finite-size converse. Hypergeometric cases test exact-pairwise formulas to numerical tolerance and the explicit entropy certificate. An explicit purifying isometry is traced to its positive completion. A separate gate-level simulation checks the linear-gate star circuit. Forty random positive quantum states with generally noncommuting conditional states check the visibility-to-affinity and quantum-to-classical total-correlation inequalities. The fixed random seed is 2402026.
+At exactly zero correlation, the comparison function evaluates the product expression directly; it does not round-trip an exponentially small affinity through inverse cosine and cosine. The regression cases prevent the resulting artificial machine-precision visibility floor. This is a numerical endpoint safeguard, not a change to the mathematical statement.
 
-The count is parameter/state cases, not 149 independent proofs. Pairwise marginals are certified analytically by exchangeability and the binary covariance identity; the numerical covariance residual is a finite consistency check.
+## Representative numerical results
 
-## Representative main outputs
+For $\varepsilon=0.2$ and $C=0.1$, the sharp asymptotic coefficient is approximately $0.6934683460$. The matching family at $N=100000$ has $\sqrt N\,v\approx0.6934665317$. The exactly pairwise-independent family at $N=10000$, $\ell=6$ has visibility about $0.0054428834$, total correlation $0.0693432610$, error $0.1999877774$, and correlation certificate $0.0772647888$ nats. Exact independence follows from [the proof](../science/pairwise-independence.md), not from a small floating-point covariance.
 
-For $\varepsilon=0.2$ and $C=0.1$, the asymptotic coefficient is approximately $0.6934683460$. At $N=100000$, the matching distribution gives $\sqrt N\,v\approx0.6934665317$.
+For the fixed-budget two-point common-error family at $N=100000$, $\sqrt N\,v\approx0.1503791947$. Its comparison ratio uses the asymptotic sharp scale, not a numerically optimized finite-size frontier. The [inverse-entropy argument](../references/related-work.md) proves its extra logarithmic loss.
 
-At $N=10000$, $\varepsilon=0.2$ and $\ell=6$, the pairwise-independent construction gives visibility approximately $0.0054428834$, total correlation approximately $0.0693432610$, and the explicit upper certificate $0.0772647888$ nats. Its local error is approximately $0.1999877774$. These are floating-point evaluations; the exact independence proof is in [the science](../science/pairwise-independence.md).
+The Bavaro comparison reproduces the source example's affinity $0.4555946768$, Bures-angle bound $0.5202211031$, and total-correlation bound $0.5942530214$. For the matching family at $N=100000$, using actual angles gives about $0.00226587078$, while the declared-budget relaxation gives $0.58687874372$. The actual visibility is $0.00219293372$. See the [precise comparison and blockwise deduction](../references/bavaro-comparison.md). These calculations neither certify priority nor claim universal finite-bound superiority.
 
-## Common-error comparison
+## Actual hosted mathematical rendering
 
-The companion script checks the [two-point family's correlation budget](../references/related-work.md#our-correlation-budget-calculation-for-the-common-error-family). Twelve explicit finite distributions check local errors, the entropy identity, affinity and pair covariance. Five budget inversions cover $N=100$ through $N=1000000$ at $\varepsilon=0.2$, $C=0.1$.
+Source delimiters do not establish correct GitHub display. The separate browser check visits this repository's actual hosted pages at an exact commit and saves full-page rendered screenshots, article coordinates and a JSON report:
 
-For example, at $N=100000$ the constrained common-error family has $\sqrt N\,v\approx0.1503791947$, substantially below the main construction. The output's comparison ratio uses the *asymptotic* sharp scale, not an independently computed finite-$N$ optimum. The inverse-entropy asymptotic proof is in the related-work account; the slowly converging finite ratios do not prove it.
+```bash
+python -m pip install -r verification/render-requirements.txt
+python -m playwright install --with-deps chromium
+python verification/check_hosted_rendering.py --ref FULL_COMMIT_SHA
+```
 
-These are checks of our explicit budget calculation, not a numerical novelty test. The original main script and its stored output are separate from these 17 companion cases.
+Unlike the numerical scripts, this command requires network access. It reads public pages without authentication or credentials. It covers all 13 Markdown pages: the root README, the three learning pages, six scientific pages, two related-work pages and this verification guide. It checks renderer error messages, missing rendered expressions, leftover dollar delimiters and the displayed milestone count. A missing page, renderer alert or absent mathematical output is a failure, not a passing review.
 
-## Bavaro comparison
+The [GitHub Actions workflow](../.github/workflows/verify.yml) runs the numerical, structural and hosted checks, retaining output, the exact reviewed source archive, and screenshots as a seven-day workflow artifact. Action implementations and browser-library version are pinned. The browser step is a real hosted-rendering check, not a local Markdown preview. **Its screenshots still require visual inspection** for layout, tables, clipping, notation and unintended emphasis. A green job alone is not a complete visual review, and an access failure must not be represented as a successful rendering check.
 
-The [comparison account](../references/bavaro-comparison.md) identifies the exact source and distinguishes source results from deductions made here. Its script contains 52 finite cases: one reproduction of Remark 6.4, 27 endpoint/inequality checks, four matching-family comparisons and 20 finite correlation-splitting checks with seed 24102026. The source PDF is not needed to execute the script and is not redistributed.
+Mathematical display blocks use fenced `math` where Markdown escaping would otherwise alter row separators or delimiters. Operator labels use supported upright notation, and literal set braces are written as named delimiters. These are hosting-compatibility choices, not changes to the equations or a universal notation rule for other projects.
 
-Remark 6.4 reproduces to its quoted precision: affinity approximately $0.4555946768$, angle bound $0.5202211031$, and total-correlation bound $0.5942530214$. At $\varepsilon=0.2$, $C=0.1$, the direct uniform budget bound tends to $0.5868787437$. The blockwise deduction, derived here, gives a vanishing but logarithmically weaker bound. The actual-angle calculation is kept separate: knowing those angles supplies information beyond the declared total-correlation budget and can make the source's finite bound tighter than our implemented finite converse on particular states.
+## Evidence boundaries
 
-The original, blob-verified main script was rerun successfully during this comparison. The new output was regenerated and compared on rerun. Counts describe finite internal cases, not independent reviews or new theorems.
-
-## What the checks do not establish
-
-The scripts do not prove uniform or asymptotic statements, certify historical novelty, establish typical environmental dynamics, or verify GitHub's hosted mathematical rendering. The written proofs establish the stated mathematical claims. Computation uses ordinary floating-point arithmetic, not interval-certified bounds. Extremely small budgets or parameters at machine-precision distance from the endpoints can require higher precision than these reproduction scripts supply.
+Written proofs establish the mathematical statements. Numerical cases test finite formulas with ordinary floating-point arithmetic, not interval certification. The structural script does not assess scientific correctness. Browser screenshots assess the inspected pages and commit only. None of these checks supplies independent peer review, exhaustive historical priority, a generic local-dynamics realization, or a result for a different environment partition. Very small budgets and endpoint-near parameters may need higher precision than the numerical scripts provide.

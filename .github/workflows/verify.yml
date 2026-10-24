@@ -1,0 +1,44 @@
+name: Verify science and hosted reading routes
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.13.5'
+      - name: Install numerical and browser dependencies
+        run: |
+          python -m pip install -r verification/requirements.txt -r verification/render-requirements.txt
+          python -m playwright install --with-deps chromium
+      - name: Check proofs' finite ingredients and reading structure
+        run: |
+          mkdir -p artifacts
+          git archive --format=zip HEAD > artifacts/reviewed-source.zip
+          python verification/check_records.py > artifacts/core.json
+          python verification/check_common_error.py > artifacts/common.json
+          python verification/check_bavaro_comparison.py > artifacts/comparison.json
+          python verification/check_learning_example.py > artifacts/learning.json
+          python verification/check_repository.py > artifacts/structure.json
+      - name: Inspect actual hosted Markdown
+        env:
+          REVIEW_REF: ${{ github.event.pull_request.head.sha || github.sha }}
+        run: python verification/check_hosted_rendering.py --ref "$REVIEW_REF"
+      - name: Retain verification output and screenshots
+        if: always()
+        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
+        with:
+          name: records-verification-${{ github.run_id }}
+          path: artifacts/
+          retention-days: 7

@@ -35,6 +35,9 @@ def direct(n: int, eps: float, c: float) -> float:
         raise ValueError("Require integer n >= 1 and 0 < eps < 1/2.")
     r = 2*math.sqrt(eps*(1-eps))
     gamma = angle_from_correlation(c)
+    # Preserve the exact independent endpoint instead of a cos(pi/2) rounding floor.
+    if c == 0:
+        return r**n
     return angle_bound(r**n, gamma, gamma)
 
 
@@ -82,6 +85,9 @@ def run() -> dict:
         r = 2*math.sqrt(eps*(1-eps))
         for n in (1, 5, 20):
             assert abs(direct(n, eps, 0)-r**n) < 1e-14
+            endpoint_checks += 1
+        for n in (1000, 100000):
+            assert direct(n, eps, 0) == r**n
             endpoint_checks += 1
         for c in (.001, .1, math.log(2), 1.0):
             assert abs(direct(100000, eps, c)-direct_limit(c)) < 1e-12

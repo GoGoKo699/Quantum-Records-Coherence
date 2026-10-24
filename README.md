@@ -34,12 +34,18 @@ Prior work already gives visibility envelopes, product laws, and corrections usi
 | What attains the coefficient, and what does the circuit cost? | [Matching constructions](science/constructions.md) |
 | Can every conditional pair be independent? | [Pairwise-independent records](science/pairwise-independence.md) |
 | What does the theorem not imply? | [Physical scope](science/scope.md) |
-| Which ingredients and comparisons come from prior work? | [Related work](references/related-work.md) and [Bavaro's bounds](references/bavaro-comparison.md) |
+| Which ingredients and comparisons come from prior work? | [Related work](references/related-work.md), [Bavaro's bounds](references/bavaro-comparison.md), [bibliography](references/references.bib) |
 | How are the formulas and quantum realizations checked? | [Verification](verification/README.md) |
 
 The complete proof route starts at [science/README.md](science/README.md). The main script checks 149 finite parameter/state cases, including a gate-level star-circuit calculation. Companion scripts check the common-error benchmark and the prior-bound comparison. These checks support the formulas; the asymptotic statements rest on the written proofs.
 
 **Scope that matters:** the attaining quantum realizations allow an additional unobserved environment/purifier. The budget covers correlations among the selected record fragments, not correlations with that additional environment. Attainability with a pure conditional state of an exhaustive $N$-fragment environment is not established. The identified Strasberg and Bavaro comparisons are documented for their inspected versions; no exhaustive historical-priority certification is claimed.
+
+## Learning route
+
+The single educational anchor is **John Watrous, The Theory of Quantum Information (2018)**. Begin with the [physical primer and two-record example](learning/README.md), then follow the [30-milestone map](learning/MILESTONES.md): 14 background/preliminaries milestones and 16 narrative/innovation milestones, each with dependencies, conceptual targets and proof pointers.
+
+The [Watrous bridge](learning/WATROUS_BRIDGE.md) identifies the relevant sections, translates unsquared fidelity and bit/nat conventions, and separates textbook foundations from the derivations supplied here. The learning route does not replace the exact scientific statements or require a reader to study the entire book.
 
 ## Reproduction
 
@@ -48,7 +54,11 @@ python -m pip install -r verification/requirements.txt
 python verification/check_records.py
 python verification/check_common_error.py
 python verification/check_bavaro_comparison.py
+python verification/check_learning_example.py
+python verification/check_repository.py
 ```
+
+The [verification guide](verification/README.md) describes numerical evidence, structural checks and the separate hosted-rendering review. Source checks alone do not certify GitHub's displayed mathematics.
 
 ## Purpose and contact
 
