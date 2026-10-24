@@ -12,7 +12,9 @@ from playwright.sync_api import sync_playwright
 
 PAGES = ['README.md', 'learning/README.md', 'learning/WATROUS_BRIDGE.md',
          'learning/MILESTONES.md', 'science/sharp-bound.md',
-         'science/pairwise-independence.md', 'references/bavaro-comparison.md']
+         'science/pairwise-independence.md', 'references/bavaro-comparison.md',
+         'science/model.md', 'science/constructions.md', 'science/scope.md',
+         'science/README.md', 'references/related-work.md', 'verification/README.md']
 SCAN = r'''element => {
   const roots = [element], nodes = [];
   for (let i = 0; i < roots.length; i++) {
@@ -68,11 +70,23 @@ def main() -> None:
                 text = info.pop('text')
                 (output / f'{slug}.txt').write_text(text)
                 row.update(info)
-                article.screenshot(path=str(output / f'{slug}.png'), timeout=30000)
+                page.evaluate('window.scrollTo(0, 0)')
+                page.wait_for_timeout(750)
+                row['article_box'] = article.bounding_box()
+                page.screenshot(path=str(output / f'{slug}.png'), full_page=True, timeout=30000)
                 row['screenshot'] = f'{slug}.png'
-                if info['mathErrors']:
+                error_patterns = (r'macros are not allowed', r'Missing.*?delimiter',
+                                  r'Missing.*?end', r'Undefined control sequence',
+                                  r'ParseError', r'KaTeX parse error')
+                row['text_errors'] = [pattern for pattern in error_patterns
+                                      if re.search(pattern, text, flags=re.I)]
+                if info['mathErrors'] or row['text_errors']:
                     raise RuntimeError('A mathematical rendering error is present.')
-                if path != 'learning/MILESTONES.md' and info['renderedMath'] == 0:
+                if info['renderedMath'] < info['mathHosts']:
+                    raise RuntimeError('At least one math host has no rendered expression.')
+                if '$' in text:
+                    raise RuntimeError('Literal dollar delimiters remain in the displayed article.')
+                if path not in ('learning/MILESTONES.md', 'science/README.md') and info['renderedMath'] == 0:
                     raise RuntimeError('No rendered mathematical nodes detected; inspect screenshot.')
                 if path == 'learning/MILESTONES.md':
                     milestones = [h for h in info['headings'] if re.match(r'M\d\d\b', h)]

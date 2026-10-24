@@ -20,23 +20,23 @@ Particularly direct pointers are Definition 3.11 (fidelity), Theorem 3.17 (posit
 
 ## Convention translation
 
-Watrous writes vectors and adjoints as $u$ and $u^*$; here the corresponding notation is $|u\rangle$ and $\langle u|$. His $uu^*$ is our $|u\rangle\langle u|$. A classical probability vector is represented by a diagonal density matrix when embedded in the quantum model.
+Watrous writes vectors and adjoints as $u$ and $u^\ast$; here the corresponding notation is $|u\rangle$ and $\langle u|$. His $uu^\ast$ is our $|u\rangle\langle u|$. A classical probability vector is represented by a diagonal density matrix when embedded in the quantum model.
 
 Watrous's $F(\rho,\sigma)$ is **unsquared fidelity**:
 
-$$
+```math
 F_{\mathrm W}(\rho,\sigma)=\|\sqrt\rho\sqrt\sigma\|_1.
-$$
+```
 
-This is the quantity denoted $V$ in the source comparison. On diagonal states it equals our classical affinity $B(P,Q)=\sum_y\sqrt{P(y)Q(y)}$. It is not automatically the actual visibility $v=|\operatorname{Tr}A|$ of a given joint state. The compatible positive completion can attain it; dephasing the system can instead make visibility zero without changing the conditional record states.
+This is the quantity denoted $V$ in the source comparison. On diagonal states it equals our classical affinity $B(P,Q)=\sum_y\sqrt{P(y)Q(y)}$. It is not automatically the actual visibility $v=|\mathrm{Tr}A|$ of a given joint state. The compatible positive completion can attain it; dephasing the system can instead make visibility zero without changing the conditional record states.
 
 The book's default logarithm has base two, and its entropies are in bits. Here every entropy and relative-entropy budget is in **nats**:
 
-$$
+```math
 S_{\mathrm{nats}}=(\ln2)H_{\mathrm W},\qquad
 D_{\mathrm{nats}}=(\ln2)D_{\mathrm W},\qquad
 C_{\mathrm{nats}}=(\ln2)C_{\mathrm{bits}}.
-$$
+```
 
 The source's entropy symbol $H$ becomes $S$ for quantum entropy here; classical entropy remains $H$ or $h$. Changing units in both numerator and denominator leaves $C/J_\varepsilon$ invariant. Changing only $C$ would change the sharp coefficient incorrectly. Trace distance in the comparisons is half the trace norm; relative entropy is a different quantity despite uses of the letter $D$ in different sources.
 

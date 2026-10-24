@@ -25,36 +25,36 @@ Our separate conditional decoder-error bounds imply local trace distance at leas
 
 Let $V$ denote root fidelity (not its square), put $r=2\sqrt{\varepsilon(1-\varepsilon)}$, and define
 
-$$
-g(T)=\arccos(e^{-T/2}),\qquad [z]_+=\max\{z,0\}.
-$$
+```math
+g(T)=\arccos(e^{-T/2}),\qquad [z]_+=\max\lbrace z,0\rbrace.
+```
 
 Applying Theorem 6.2 and Corollary 6.3 with $T_0,T_1\le C$ gives the valid bound
 
-$$
+```math
 v\le V\le U_{\rm B}(N,\varepsilon,C)
 :=\cos\!\left([\arccos(r^N)-2g(C)]_+\right).
-$$
+```
 
 This is our specialization of the source's inequalities. For every fixed $C>0$ and $0<\varepsilon<1/2$, direct evaluation gives
 
-$$
+```math
 \lim_{N\to\infty}U_{\rm B}(N,\varepsilon,C)=
 \begin{cases}
 2e^{-C/2}\sqrt{1-e^{-C}},&0<C<\ln2,\\
 1,&C\ge\ln2.
 \end{cases}
-$$
+```
 
 The elementary one-fragment cap $r$ can be imposed as well; the minimum still has a positive limit. At $C=0$, keep $U_{\rm B}=r^N$ rather than treating floating-point roundoff at $\cos(\pi/2)$ as residual visibility. The nonzero limit is a limitation of this **direct bound**, not a claim that nonzero asymptotic visibility is attainable.
 
 In contrast, our [converse and matching construction](../science/sharp-bound.md) prove, for the declared class,
 
-$$
+```math
 \lim_{N\to\infty}\sqrt N\,v_{\max}(N,\varepsilon,C)
 =2\sqrt{C/J_\varepsilon},\qquad
 J_\varepsilon=(1-2\varepsilon)\ln\frac{1-\varepsilon}{\varepsilon}.
-$$
+```
 
 The improvement uses the distribution of rare-event probability under the relative-entropy budget. Replacing that budget by one global Bures angle loses the large-deviation information used by the three-region argument.
 
@@ -64,21 +64,21 @@ It would be too strong to say that the source's inequalities cannot yield any va
 
 Partition the records into $m=\lfloor N/k\rfloor$ disjoint blocks of size $k$, plus any remainder. For either branch, subadditivity across the block partition gives
 
-$$
+```math
 \sum_{j=1}^m T_x(E_{B_j})\le T_x(E)\le C.
-$$
+```
 
 Indeed, the difference is the total correlation between the blocks and remainder plus the internal total correlation of the remainder; both are nonnegative. Adding the two branch inequalities yields some block $B_j$ with
 
-$$
+```math
 T_0(E_{B_j})+T_1(E_{B_j})\le2C/m.
-$$
+```
 
 Fidelity data processing bounds the full-record envelope by this block's envelope. Also $g(T)\le\sqrt T$: for $z=g(T)$, $T=-2\ln\cos z\ge z^2$, since $\tan z\ge z$ on $[0,\pi/2)$. Applying Corollary 6.3 on the block therefore gives an angle correction at most $2\sqrt{C/m}$. Cosine is 1-Lipschitz, including the clipped case, so
 
-$$
-v\le\min\left\{r,\quad r^k+2\sqrt{\frac{C}{\lfloor N/k\rfloor}}\right\},\qquad 1\le k\le N.
-$$
+```math
+v\le\min\left\lbrace r,\quad r^k+2\sqrt{\frac{C}{\lfloor N/k\rfloor}}\right\rbrace,\qquad 1\le k\le N.
+```
 
 For fixed $r\in(0,1)$ choose $k=\lceil\ln N/(-2\ln r)\rceil$, which is at most $N$ eventually. Then $r^k\le N^{-1/2}$ and the second term is $O(\sqrt{C\ln N/N})$. This establishes a weaker vanishing guarantee from the prior inequalities with an additional block argument. It does not supply the sharp coefficient or the matching $N^{-1/2}$ extremal law. The comparison is therefore more precise than simply contrasting a constant bound with a vanishing one.
 
@@ -94,6 +94,6 @@ Thus the source's geometric bound is correct, complementary and sometimes numeri
 
 The [comparison script](../verification/check_bavaro_comparison.py) reproduces Remark 6.4: joint affinity $0.4555946768$, product proxy $0.36$, Bures-angle bound $0.5202211031$, and total-correlation bound $0.5942530214$. It also checks the direct-limit formula, the block budget decomposition on finite classical laws, and the three bounds on the main matching family. [Stored output](../verification/bavaro_comparison_results.json) identifies both script hashes and the source PDF. Floating-point checks corroborate the displayed finite calculations; the asymptotic comparison rests on the arguments above.
 
-The inspected manuscript does not state the fixed-positive-$C$ sharp coefficient, a construction attaining that coefficient under the same budget, or the growing exactly conditionally pairwise-independent family with arbitrarily small fixed positive total correlation and algebraic visibility. Those are the distinctions supported by this comparison. The generic visibility envelope, product law and existence of correlation-budget corrections must be credited to prior work.
+The inspected manuscript does not state the sharp coefficient for fixed positive $C$, a construction attaining that coefficient under the same budget, or the growing exactly conditionally pairwise-independent family with arbitrarily small fixed positive total correlation and algebraic visibility. Those are the distinctions supported by this comparison. The generic visibility envelope, product law and existence of correlation-budget corrections must be credited to prior work.
 
 This resolves the identified full-text comparison for the supplied version. It is not an exhaustive historical-priority certificate, a claim of independent expert review, or a claim that no further deduction from earlier information-theoretic tools is possible. The selected-record/purifier boundary and all other [physical qualifications](../science/scope.md) remain unchanged.

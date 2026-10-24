@@ -25,7 +25,7 @@ python verification/check_bavaro_comparison.py > verification/bavaro_comparison_
 |---|---|
 | `check_records.py` — 149 parameter/state cases | Normalization, conditional errors, entropy and affinity sandwiches, independent endpoint, finite converse, pairwise covariance, entropy certificate, positive completion, gate-level star circuit, and 40 random noncommuting quantum-state comparisons. |
 | `check_common_error.py` — 17 cases | Twelve explicit two-point distributions and five inverse-budget calculations; entropy, affinity and covariance identities. |
-| `check_bavaro_comparison.py` — 58 cases | The source's numerical example, 33 endpoint/inequality cases including six large-$N$ zero-budget regressions, four matching-family comparisons and 20 total-correlation splitting cases. |
+| `check_bavaro_comparison.py` — 58 cases | The source's numerical example, 33 endpoint/inequality cases including six zero-budget regressions at large $N$, four matching-family comparisons and 20 total-correlation splitting cases. |
 | `check_learning_example.py` | The primer's two-record distributions, positive completions with visibility 0.64 and zero, unconditional dependence and bit/nat conversion. |
 | `check_repository.py` | Exactly 30 ordered milestones, 14/16 phase allocation, required fields, backward dependencies, selected anchor, six bibliography entries and existing local link targets. |
 
@@ -43,7 +43,7 @@ The Bavaro comparison reproduces the source example's affinity $0.4555946768$, B
 
 ## Actual hosted mathematical rendering
 
-Source delimiters do not establish correct GitHub display. The separate browser check visits this repository's actual hosted pages at an exact commit and saves rendered screenshots and a JSON report:
+Source delimiters do not establish correct GitHub display. The separate browser check visits this repository's actual hosted pages at an exact commit and saves full-page rendered screenshots, article coordinates and a JSON report:
 
 ```bash
 python -m pip install -r verification/render-requirements.txt
@@ -51,9 +51,11 @@ python -m playwright install --with-deps chromium
 python verification/check_hosted_rendering.py --ref FULL_COMMIT_SHA
 ```
 
-Unlike the numerical scripts, this command requires network access. It reads public pages without authentication or credentials. It covers the root README, learning primer, Watrous bridge, milestone map, sharp converse, pairwise construction and Bavaro comparison. It detects explicit mathematical rendering errors, checks for rendered mathematics, and checks the displayed milestone count. A missing page or absent rendered mathematics is a failure, not a passing review.
+Unlike the numerical scripts, this command requires network access. It reads public pages without authentication or credentials. It covers all 13 Markdown pages: the root README, the three learning pages, six scientific pages, two related-work pages and this verification guide. It checks renderer error messages, missing rendered expressions, leftover dollar delimiters and the displayed milestone count. A missing page, renderer alert or absent mathematical output is a failure, not a passing review.
 
-The [GitHub Actions workflow](../.github/workflows/verify.yml) runs the numerical, structural and hosted checks, retaining their output and screenshots as a seven-day workflow artifact. Action implementations and browser-library version are pinned. The browser step is a real hosted-rendering check, not a local Markdown preview. **Its screenshots still require visual inspection** for layout, tables, clipping, notation and unintended emphasis. A green job alone is not a complete visual review, and an access failure must not be represented as a successful rendering check.
+The [GitHub Actions workflow](../.github/workflows/verify.yml) runs the numerical, structural and hosted checks, retaining output, the exact reviewed source archive, and screenshots as a seven-day workflow artifact. Action implementations and browser-library version are pinned. The browser step is a real hosted-rendering check, not a local Markdown preview. **Its screenshots still require visual inspection** for layout, tables, clipping, notation and unintended emphasis. A green job alone is not a complete visual review, and an access failure must not be represented as a successful rendering check.
+
+Mathematical display blocks use fenced `math` where Markdown escaping would otherwise alter row separators or delimiters. Operator labels use supported upright notation, and literal set braces are written as named delimiters. These are hosting-compatibility choices, not changes to the equations or a universal notation rule for other projects.
 
 ## Evidence boundaries
 

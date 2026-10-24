@@ -25,6 +25,7 @@ jobs:
       - name: Check proofs' finite ingredients and reading structure
         run: |
           mkdir -p artifacts
+          git archive --format=zip HEAD > artifacts/reviewed-source.zip
           python verification/check_records.py > artifacts/core.json
           python verification/check_common_error.py > artifacts/common.json
           python verification/check_bavaro_comparison.py > artifacts/comparison.json

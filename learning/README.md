@@ -8,16 +8,16 @@ Use [Watrous (2018)](WATROUS_BRIDGE.md) as the one educational anchor. Follow th
 
 A density matrix records the probabilities and coherences of a quantum state. A reduced density matrix describes a subsystem when the other registers are not measured. In the balanced pointer basis, write the system and selected records as
 
-$$
+```math
 \rho_{SE}=\frac12\begin{pmatrix}\rho_E^0&A\\A^\dagger&\rho_E^1\end{pmatrix}.
-$$
+```
 
 The diagonal blocks are the record states conditioned on the two pointer alternatives. The cross block $A$ carries coherence between them. Tracing the records and scanning the system's relative phase produces
 
-$$
-p_+(\theta)=\frac{1+\operatorname{Re}(e^{i\theta}\operatorname{Tr}A)}2,
-\qquad v=|\operatorname{Tr}A|.
-$$
+```math
+p_+(\theta)=\frac{1+\mathrm{Re}(e^{i\theta}\mathrm{Tr}A)}2,
+\qquad v=|\mathrm{Tr}A|.
+```
 
 The contrast $v$ belongs to this joint state. The record states alone constrain it from above but generally do not determine it. [The operational model](../science/model.md) contains the exact assumptions and proof.
 
@@ -27,21 +27,21 @@ A local decoder is a two-outcome quantum measurement on one fragment. Its chance
 
 Take $\varepsilon=1/5$. In outcome order $00,01,10,11$, independent conditional records have
 
-$$
+```math
 P_0=(16,4,4,1)/25,\qquad P_1=(1,4,4,16)/25.
-$$
+```
 
 Each fragment has error $1/5$ under each alternative. Their classical affinity is the sum of the four square-root products,
 
-$$
+```math
 B(P_0,P_1)=16/25=0.64.
-$$
+```
 
 For each string $y$, let $|\chi_y\rangle=\sqrt{P_0(y)}|0\rangle+\sqrt{P_1(y)}|1\rangle$. The positive joint state
 
-$$
+```math
 \rho_{SE}=\frac12\sum_y|\chi_y\rangle\langle\chi_y|\otimes|y\rangle\langle y|
-$$
+```
 
 has exactly these conditional records and visibility $0.64$. Dephasing only the system removes its cross block and makes visibility zero, while leaving both record distributions unchanged. Thus the same records allow different actual contrasts. This construction, rather than an inference from record probabilities alone, supplies attainability.
 
@@ -51,10 +51,10 @@ Conditioned on either alternative the records are independent. Without condition
 
 For each conditional state separately,
 
-$$
+```math
 T_x=D\!\left(\rho_E^x\,\middle\|\,\bigotimes_i\rho_{E_i}^x\right)
 =\sum_iS(\rho_{E_i}^x)-S(\rho_E^x)\le C.
-$$
+```
 
 Here $S$ is entropy in nats and $D$ is relative entropy. The reference state uses the same branch's marginals, not an independent model chosen after seeing the answer. Zero total correlation forces a product state. Small positive total correlation is not the same as pairwise independence, and pairwise independence does not imply zero total correlation.
 
@@ -66,10 +66,10 @@ The upper-bound proof first decodes quantum records into bits without increasing
 
 The attaining family inserts a rare coherent common flip into independently noisy records. A probability of order $1/N$ costs only a fixed total correlation, but contributes to visibility through its square root. The [converse](../science/sharp-bound.md) and [construction](../science/constructions.md) agree on
 
-$$
+```math
 \lim_{N\to\infty}\sqrt N\,v_{\max}=2\sqrt{C/J_\varepsilon},
 \qquad J_\varepsilon=(1-2\varepsilon)\ln\frac{1-\varepsilon}{\varepsilon},
-$$
+```
 
 for fixed $C>0$ and fixed $0<\varepsilon<1/2$. At exactly $C=0$, the envelope is instead $[2\sqrt{\varepsilon(1-\varepsilon)}]^N$. These are different limiting regimes, not a finite discontinuity assertion. The algebraic envelope still tends to zero.
 
