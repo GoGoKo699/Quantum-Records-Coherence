@@ -1,0 +1,6 @@
+# Quantum Records and Coherence
+Scientific question and assumptions: science/model.md
+Proof and construction obligations: science/proof-obligations.md
+Novelty comparison: references/related-work.md
+Verification: verification/README.md
+Research remains in progress; do not report the proposed asymptotic formula as a proved result.
