@@ -1,10 +1,10 @@
 {
   "source_example_cases": 1,
-  "endpoint_inequality_cases": 27,
+  "endpoint_inequality_cases": 33,
   "matching_family_cases": 4,
   "correlation_splitting_cases": 20,
   "source_pdf_sha256": "50aaff14f11a81da5ee7557d3ff86e446d8075b69717daf220ad75ff814410f9",
-  "source_sha256": "5c7772118ca444e65632eb02773547c642934be02f1d68ef001fc014c056a9a0",
+  "source_sha256": "10ed8ae739bc4b4c3bc3bf708f437819d59750f29f91b2efdfe2765493057703",
   "core_source_sha256": "a757dfc15e6f935f14b1221c3b601555f8af7d9e0ce81375c357b29fd7be1a9f",
   "python": "3.13.5",
   "numpy": "2.3.5",

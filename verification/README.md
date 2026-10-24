@@ -25,11 +25,13 @@ python verification/check_bavaro_comparison.py > verification/bavaro_comparison_
 |---|---|
 | `check_records.py` — 149 parameter/state cases | Normalization, conditional errors, entropy and affinity sandwiches, independent endpoint, finite converse, pairwise covariance, entropy certificate, positive completion, gate-level star circuit, and 40 random noncommuting quantum-state comparisons. |
 | `check_common_error.py` — 17 cases | Twelve explicit two-point distributions and five inverse-budget calculations; entropy, affinity and covariance identities. |
-| `check_bavaro_comparison.py` — 52 cases | The source's numerical example, 27 endpoint/inequality cases, four matching-family comparisons and 20 total-correlation splitting cases. |
+| `check_bavaro_comparison.py` — 58 cases | The source's numerical example, 33 endpoint/inequality cases including six large-$N$ zero-budget regressions, four matching-family comparisons and 20 total-correlation splitting cases. |
 | `check_learning_example.py` | The primer's two-record distributions, positive completions with visibility 0.64 and zero, unconditional dependence and bit/nat conversion. |
 | `check_repository.py` | Exactly 30 ordered milestones, 14/16 phase allocation, required fields, backward dependencies, selected anchor, six bibliography entries and existing local link targets. |
 
 The case counts are not counts of independent proofs. General heading fragments and external URLs are outside the structural script's checks. Personal coaching records and a separate manuscript entrypoint are excluded from the reader route.
+
+At exactly zero correlation, the comparison function evaluates the product expression directly; it does not round-trip an exponentially small affinity through inverse cosine and cosine. The regression cases prevent the resulting artificial machine-precision visibility floor. This is a numerical endpoint safeguard, not a change to the mathematical statement.
 
 ## Representative numerical results
 

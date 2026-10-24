@@ -40,7 +40,7 @@ Verification entrypoints:
 - verification/check_records.py and results.json: 149 core finite cases.
 - verification/check_common_error.py and common_error_results.json: 17 benchmark cases.
 - verification/check_bavaro_comparison.py and bavaro_comparison_results.json:
-  52 prior-bound comparison cases.
+  58 prior-bound comparison cases, including six large-N zero-budget regressions.
 - verification/check_learning_example.py: the primer's completions and unit conversion.
 - verification/check_repository.py: milestone structure and local link targets.
 - verification/check_hosted_rendering.py: actual GitHub pages at an exact commit;
