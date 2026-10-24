@@ -1,0 +1,58 @@
+{
+  "direct_distribution_cases": 12,
+  "budget_inversion_cases": 5,
+  "largest_entropy_identity_residual": 4.440892098500626e-16,
+  "python": "3.13.5",
+  "source_sha256": "bee8b0bb0703c6498e596efd11ffb47169d30c9f942fd9ae140192625a382825",
+  "epsilon": 0.2,
+  "budget_nats": 0.1,
+  "sharp_asymptotic_coefficient": 0.6934683460425485,
+  "comparison": [
+    {
+      "N": 100,
+      "common_error": 9.881425805186279e-05,
+      "total_correlation": 0.1,
+      "diagonal_completion_visibility": 0.01988008991873713,
+      "sqrt_N_visibility": 0.19880089918737132,
+      "ratio_to_sharp_asymptotic_scale": 0.2866762417086211,
+      "N_logN_error_over_C": 0.4550564751309722
+    },
+    {
+      "N": 1000,
+      "common_error": 7.847737520849057e-06,
+      "total_correlation": 0.1,
+      "diagonal_completion_visibility": 0.0056027407342709905,
+      "sqrt_N_visibility": 0.17717421859700536,
+      "ratio_to_sharp_asymptotic_scale": 0.2554899868293839,
+      "N_logN_error_over_C": 0.5421025028771126
+    },
+    {
+      "N": 10000,
+      "common_error": 6.563834709360279e-07,
+      "total_correlation": 0.1,
+      "diagonal_completion_visibility": 0.0016203493945402849,
+      "sqrt_N_visibility": 0.1620349394540285,
+      "ratio_to_sharp_asymptotic_scale": 0.2336587392614553,
+      "N_logN_error_over_C": 0.6045515181859953
+    },
+    {
+      "N": 100000,
+      "common_error": 5.653475869014914e-08,
+      "total_correlation": 0.09999999999999999,
+      "diagonal_completion_visibility": 0.0004755407679430659,
+      "sqrt_N_visibility": 0.15037919469656727,
+      "ratio_to_sharp_asymptotic_scale": 0.21685084193783893,
+      "N_logN_error_over_C": 0.650880462979765
+    },
+    {
+      "N": 1000000,
+      "common_error": 4.970233548620394e-09,
+      "total_correlation": 0.1,
+      "diagonal_completion_visibility": 0.00014099976629650381,
+      "sqrt_N_visibility": 0.14099976629650382,
+      "ratio_to_sharp_asymptotic_scale": 0.20332545400399954,
+      "N_logN_error_over_C": 0.6866631406651328
+    }
+  ],
+  "scope": "Finite checks of our common-error budget calculation; no source-access or priority certification."
+}

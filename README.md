@@ -35,15 +35,16 @@ A second construction has exactly independent conditional **pairs** of records, 
 | Which ingredients and comparisons come from prior work? | [Related work and review limits](references/related-work.md) |
 | How are the formulas and quantum realizations checked? | [Verification](verification/README.md) |
 
-The complete proof route starts at [science/README.md](science/README.md). The reproducible script checks 149 finite parameter/state cases, including a gate-level star-circuit calculation. These checks support the formulas; the asymptotic statements rest on the written proofs.
+The complete proof route starts at [science/README.md](science/README.md). The reproducible main script checks 149 finite parameter/state cases, including a gate-level star-circuit calculation. A companion script checks the common-error family's correlation cost used in the literature comparison. These checks support the formulas; the asymptotic statements rest on the written proofs.
 
-**Scope that matters:** the attaining quantum realizations allow an additional unobserved environment/purifier. The budget covers correlations among the selected record fragments, not correlations with that additional environment. Attainability with a pure conditional state of an exhaustive $N$-fragment environment is not established. The two closest 2026 full-text comparisons remain unresolved because only their primary-source abstracts/descriptions were retrievable; no priority certification is claimed.
+**Scope that matters:** the attaining quantum realizations allow an additional unobserved environment/purifier. The budget covers correlations among the selected record fragments, not correlations with that additional environment. Attainability with a pure conditional state of an exhaustive $N$-fragment environment is not established. The statement-level Strasberg comparison is documented; the Bavaro full-text comparison remains unresolved. No comprehensive priority certification is claimed.
 
 ## Reproduction
 
 ```bash
 python -m pip install -r verification/requirements.txt
 python verification/check_records.py
+python verification/check_common_error.py
 ```
 
 ## Purpose and contact

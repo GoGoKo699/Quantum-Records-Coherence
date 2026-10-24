@@ -7,15 +7,19 @@ Independent endpoint, finite-size converse and sharp asymptotic coefficient: sci
 Matching mixture and explicit linear-gate star circuit: science/constructions.md
 Exactly pairwise-independent bounded-correlation construction: science/pairwise-independence.md
 Physical interpretation and load-bearing limitations: science/scope.md
-Attribution and unresolved full-text comparisons: references/related-work.md
+Attribution, Strasberg comparison, common-error budget calculation and unresolved Bavaro full text: references/related-work.md
 Reproduction, checked scope and output: verification/README.md
-Executable checks: verification/check_records.py
-Stored checked output: verification/results.json
+Main executable checks and stored output: verification/check_records.py, verification/results.json
+Common-error comparison check and stored output: verification/check_common_error.py, verification/common_error_results.json
 
 Preserve these distinctions: selected fragments versus exhaustive pure environment;
-actual visibility versus a compatible fidelity envelope; conditional errors versus
-average error; fixed-positive-budget asymptotics versus varying-budget limits;
-pairwise versus joint independence; written proof versus finite numerical checks;
-reconstructed mathematics versus verified priority. Additional purifiers are
-explicitly outside the constrained record partition. No educational anchor has
-yet been selected, and no personal coaching procedure belongs in this repository.
+actual visibility versus a compatible fidelity envelope or history probability-sum defect;
+conditional errors versus average error; fixed-positive-budget asymptotics versus
+varying-budget limits; pairwise versus joint independence; written proof versus
+finite numerical checks; reconstructed mathematics versus verified priority.
+Additional purifiers are explicitly outside the constrained record partition.
+A perfectly correlated two-point family has a different correlation cost from the
+independently noisy common-flip construction. The remaining inaccessible source
+is Bavaro's manuscript v9.0, Zenodo 22647510, not the inspected Strasberg sections.
+No educational anchor has been selected. No personal coaching procedure belongs
+in this repository.
