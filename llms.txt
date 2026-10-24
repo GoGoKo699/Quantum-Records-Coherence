@@ -1,30 +1,65 @@
 # Quantum Records and Coherence
 
-Question and principal result: README.md
-Connected scientific route and claim-to-proof map: science/README.md
-Exact model, actual visibility and quantum/classical reduction: science/model.md
-Independent endpoint, finite-size converse and sharp asymptotic coefficient: science/sharp-bound.md
-Matching mixture and explicit linear-gate star circuit: science/constructions.md
-Exactly pairwise-independent bounded-correlation construction: science/pairwise-independence.md
-Physical interpretation and load-bearing limitations: science/scope.md
-Attribution, Strasberg comparison and common-error budget: references/related-work.md
-Bavaro full-text comparison, exact source provenance and blockwise deduction: references/bavaro-comparison.md
-Reproduction, checked scope and output: verification/README.md
-Main executable checks and stored output: verification/check_records.py, verification/results.json
-Common-error comparison check and output: verification/check_common_error.py, verification/common_error_results.json
-Bavaro comparison check and output: verification/check_bavaro_comparison.py, verification/bavaro_comparison_results.json
+This repository asks how conditional dependence among locally readable records
+changes the maximum actual interference left in a balanced qubit.
 
-Preserve these distinctions: selected fragments versus exhaustive pure environment;
-actual visibility versus a compatible fidelity envelope or history probability-sum defect;
-conditional errors versus average error; fixed-positive-budget asymptotics versus
-varying-budget limits; pairwise versus joint independence; written proof versus
-finite numerical checks; reconstructed mathematics versus verified priority.
-Additional purifiers are explicitly outside the constrained record partition.
-A perfectly correlated two-point family has a different correlation cost from the
-independently noisy common-flip construction. Bavaro Corollary 6.3 already uses
-the same relative-entropy total correlation. Credit that bound and the standard
-visibility envelope; distinguish direct specialization, our blockwise deduction,
-state-specific Bures-angle information and our sharp fixed-budget extremal law.
-Both identified full-text comparisons are resolved for the inspected versions;
-this does not establish exhaustive priority. No educational anchor has been
-selected. No personal coaching procedure belongs in this repository.
+Scientific entrypoints:
+- README.md: question, sharp law, scope, science and learning routes, reproduction.
+- science/README.md: connected account and claim-to-proof map.
+- science/model.md: selected-fragment quantum model, two conditional errors,
+  branchwise total correlation, actual visibility, decoding and positive completion.
+- science/sharp-bound.md: independent endpoint, event-budget inversion,
+  three-region finite converse and sharp asymptotic upper coefficient.
+- science/constructions.md: matching noisy common-flip family and coherent star
+  circuit, including gate and auxiliary-environment accounting.
+- science/pairwise-independence.md: hypergeometric covariance cancellation,
+  finite entropy certificate and bounded-correlation algebraic family.
+- science/scope.md: physical synthesis and load-bearing boundaries.
+- references/related-work.md: attribution, Strasberg comparison and common-error budget.
+- references/bavaro-comparison.md: exact source provenance, same-budget prior
+  bound, blockwise deduction and distinction from the sharp law.
+- references/references.bib: structured metadata for the six principal sources.
+
+Learning entrypoints:
+- learning/README.md: physical primer and complete two-record example.
+- learning/MILESTONES.md: the canonical learner-independent M01–M30 map,
+  with 14 background/preliminaries and 16 narrative/innovation milestones.
+- learning/WATROUS_BRIDGE.md: the single selected educational anchor, Watrous's
+  The Theory of Quantum Information (2018), verified sections, notation and units.
+
+Reader routes:
+- Story: learning/README.md, science/model.md, the two construction pages,
+  then science/scope.md.
+- Study: the Watrous bridge alongside M01–M30; use the local proof pointers
+  for project-specific arguments rather than attributing them to the textbook.
+- Theorem review: model, sharp-bound, constructions, then scope and attribution.
+- Pairwise question: model, pairwise-independence and its entropy certificate.
+- Reproduction: verification/README.md and the documented check scripts.
+
+Verification entrypoints:
+- verification/check_records.py and results.json: 149 core finite cases.
+- verification/check_common_error.py and common_error_results.json: 17 benchmark cases.
+- verification/check_bavaro_comparison.py and bavaro_comparison_results.json:
+  52 prior-bound comparison cases.
+- verification/check_learning_example.py: the primer's completions and unit conversion.
+- verification/check_repository.py: milestone structure and local link targets.
+- verification/check_hosted_rendering.py: actual GitHub pages at an exact commit;
+  screenshots still require visual inspection, independently of numerical success.
+
+Preserve these distinctions:
+- Selected fragments are not necessarily an exhaustive pure environment.
+- Actual visibility is not a fidelity envelope or a history probability-sum defect.
+- Both conditional errors and both branch budgets are bounded separately.
+- Fixed-positive-budget asymptotics do not assert a uniform varying-budget crossover.
+- Pairwise independence is not joint independence; its optimal restricted coefficient
+  is not established by the pairwise witness.
+- Watrous's fidelity is unsquared. His default entropies use bits; this project uses nats.
+- Additional controls and purifiers lie outside the selected record budget and
+  remain explicit resources. No recovery or postselection defines the visibility.
+- Bavaro Corollary 6.3 already uses the same relative-entropy total correlation.
+  Credit the generic envelope, product law and correlation correction. Distinguish
+  direct specialization, blockwise reuse, actual angles and the sharp extremal law.
+- Targeted literature comparisons and finite checks are not exhaustive priority
+  certification, independent peer review or evidence of typical natural dynamics.
+- Primary research references are not additional educational anchors. Personal
+  coaching procedures, answers and learner progress are not part of this repository.

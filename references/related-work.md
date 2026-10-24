@@ -1,6 +1,6 @@
 # Related work, attribution and review limits
 
-Scientific review date: 24 October 2026. Distinguish inspected primary statements, calculations supplied here, and limits of the comparison. An independently reconstructed proof does not establish historical priority.
+Scientific review date: 24 October 2026. Distinguish inspected primary statements, calculations supplied here, and limits of the comparison. An independently reconstructed proof does not establish historical priority. Structured source metadata is in [the bibliography](references.bib).
 
 ## Foundations and imported ingredients
 
@@ -8,7 +8,7 @@ Scientific review date: 24 October 2026. Distinguish inspected primary statement
 
 **M. Zwolak, C. J. Riedel and W. H. Zurek, “Amplification, Decoherence and the Acquisition of Information by Spin Environments,” Scientific Reports 6, 25277 (2016).** [Article](https://doi.org/10.1038/srep25277). The inspected abstract relates amplification in spin environments to quantum Chernoff information. We do not claim novelty for exponential amplification/distinguishability under independent record structure.
 
-**J. Watrous, The Theory of Quantum Information (Cambridge University Press, 2018).** [Author's book page](https://cs.uwaterloo.ca/~watrous/TQI/). Chapters 2, 3 and 5 supply the background for states, measurements, distance/fidelity and entropy/data processing. This is a foundational reference, not a selected educational anchor. No source files from the book are redistributed.
+**J. Watrous, The Theory of Quantum Information (Cambridge University Press, 2018).** [Author's book page](https://cs.uwaterloo.ca/~watrous/TQI/). Chapters 2, 3 and 5 supply the background for states, measurements, distance/fidelity and entropy/data processing. This is the single selected educational anchor; the [source-to-project bridge](../learning/WATROUS_BRIDGE.md) identifies the relevant sections, conventions and locally supplied derivations. No source files from the book are redistributed.
 
 The proof pages explicitly derive the binary event bound, product Chernoff estimate and hypergeometric correlation certificate, so those steps can be checked without treating this bibliography as a substitute proof.
 
