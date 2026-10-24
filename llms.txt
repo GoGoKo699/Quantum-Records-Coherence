@@ -7,10 +7,12 @@ Independent endpoint, finite-size converse and sharp asymptotic coefficient: sci
 Matching mixture and explicit linear-gate star circuit: science/constructions.md
 Exactly pairwise-independent bounded-correlation construction: science/pairwise-independence.md
 Physical interpretation and load-bearing limitations: science/scope.md
-Attribution, Strasberg comparison, common-error budget calculation and unresolved Bavaro full text: references/related-work.md
+Attribution, Strasberg comparison and common-error budget: references/related-work.md
+Bavaro full-text comparison, exact source provenance and blockwise deduction: references/bavaro-comparison.md
 Reproduction, checked scope and output: verification/README.md
 Main executable checks and stored output: verification/check_records.py, verification/results.json
-Common-error comparison check and stored output: verification/check_common_error.py, verification/common_error_results.json
+Common-error comparison check and output: verification/check_common_error.py, verification/common_error_results.json
+Bavaro comparison check and output: verification/check_bavaro_comparison.py, verification/bavaro_comparison_results.json
 
 Preserve these distinctions: selected fragments versus exhaustive pure environment;
 actual visibility versus a compatible fidelity envelope or history probability-sum defect;
@@ -19,7 +21,10 @@ varying-budget limits; pairwise versus joint independence; written proof versus
 finite numerical checks; reconstructed mathematics versus verified priority.
 Additional purifiers are explicitly outside the constrained record partition.
 A perfectly correlated two-point family has a different correlation cost from the
-independently noisy common-flip construction. The remaining inaccessible source
-is Bavaro's manuscript v9.0, Zenodo 22647510, not the inspected Strasberg sections.
-No educational anchor has been selected. No personal coaching procedure belongs
-in this repository.
+independently noisy common-flip construction. Bavaro Corollary 6.3 already uses
+the same relative-entropy total correlation. Credit that bound and the standard
+visibility envelope; distinguish direct specialization, our blockwise deduction,
+state-specific Bures-angle information and our sharp fixed-budget extremal law.
+Both identified full-text comparisons are resolved for the inspected versions;
+this does not establish exhaustive priority. No educational anchor has been
+selected. No personal coaching procedure belongs in this repository.

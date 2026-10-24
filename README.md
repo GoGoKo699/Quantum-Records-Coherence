@@ -21,7 +21,9 @@ $$
 
 The result is a worst-case, attainable envelope: allowing any fixed positive total-correlation budget changes exponential suppression to algebraic suppression. It does **not** say that every correlated environment retains that visibility.
 
-A second construction has exactly independent conditional **pairs** of records, a bounded total-correlation budget, and visibility of order $N^{-1/2}$. Thus pairwise independence does not restore the exponential envelope. The general distinction between pairwise and full independence is prior work; the quantitative simultaneous construction is the contribution investigated here.
+A second construction has exactly independent conditional **pairs** of records, a bounded total-correlation budget, and visibility of order $N^{-1/2}$. Thus pairwise independence does not restore the exponential envelope. The general distinction between pairwise and full independence is prior work; the quantitative simultaneous construction is proved here.
+
+Prior work already gives visibility envelopes, product laws, and corrections using the same relative-entropy total correlation. The distinguishing result is the **sharp fixed-budget asymptotic law with its matching realization**, together with the pairwise-independent family. The [Bavaro comparison](references/bavaro-comparison.md) includes both the direct prior bound and a stronger blockwise reuse, rather than claiming that earlier tools cannot show any suppression.
 
 ## Scientific reading route
 
@@ -32,12 +34,12 @@ A second construction has exactly independent conditional **pairs** of records, 
 | What attains the coefficient, and what does the circuit cost? | [Matching constructions](science/constructions.md) |
 | Can every conditional pair be independent? | [Pairwise-independent records](science/pairwise-independence.md) |
 | What does the theorem not imply? | [Physical scope](science/scope.md) |
-| Which ingredients and comparisons come from prior work? | [Related work and review limits](references/related-work.md) |
+| Which ingredients and comparisons come from prior work? | [Related work](references/related-work.md) and [Bavaro's bounds](references/bavaro-comparison.md) |
 | How are the formulas and quantum realizations checked? | [Verification](verification/README.md) |
 
-The complete proof route starts at [science/README.md](science/README.md). The reproducible main script checks 149 finite parameter/state cases, including a gate-level star-circuit calculation. A companion script checks the common-error family's correlation cost used in the literature comparison. These checks support the formulas; the asymptotic statements rest on the written proofs.
+The complete proof route starts at [science/README.md](science/README.md). The main script checks 149 finite parameter/state cases, including a gate-level star-circuit calculation. Companion scripts check the common-error benchmark and the prior-bound comparison. These checks support the formulas; the asymptotic statements rest on the written proofs.
 
-**Scope that matters:** the attaining quantum realizations allow an additional unobserved environment/purifier. The budget covers correlations among the selected record fragments, not correlations with that additional environment. Attainability with a pure conditional state of an exhaustive $N$-fragment environment is not established. The statement-level Strasberg comparison is documented; the Bavaro full-text comparison remains unresolved. No comprehensive priority certification is claimed.
+**Scope that matters:** the attaining quantum realizations allow an additional unobserved environment/purifier. The budget covers correlations among the selected record fragments, not correlations with that additional environment. Attainability with a pure conditional state of an exhaustive $N$-fragment environment is not established. The identified Strasberg and Bavaro comparisons are documented for their inspected versions; no exhaustive historical-priority certification is claimed.
 
 ## Reproduction
 
@@ -45,6 +47,7 @@ The complete proof route starts at [science/README.md](science/README.md). The r
 python -m pip install -r verification/requirements.txt
 python verification/check_records.py
 python verification/check_common_error.py
+python verification/check_bavaro_comparison.py
 ```
 
 ## Purpose and contact

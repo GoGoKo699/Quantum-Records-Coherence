@@ -15,4 +15,4 @@ Read [the model](model.md), [the converse](sharp-bound.md), [the matching realiz
 | Linear-gate star circuit attains the leading coefficient | Matching constructions, physical circuit | Direct rotation/CNOT state simulation |
 | Exact conditional pairwise independence and algebraic visibility under any positive fixed budget | Pairwise-independent records | Hypergeometric moments and entropy certificate |
 
-The proofs are reconstructed here in full. Numerical checks are not independent expert review. The source comparison distinguishes inspected material from inaccessible full texts; see [related work](../references/related-work.md).
+The proofs are reconstructed here in full. Numerical checks are not independent expert review. The [related-work account](../references/related-work.md) and [Bavaro comparison](../references/bavaro-comparison.md) separate inherited envelopes and correlation bounds from the sharp fixed-budget result and its witnesses.
